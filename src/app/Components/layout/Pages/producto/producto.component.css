@@ -1,0 +1,28 @@
+
+table{
+    width: 100%;
+}
+
+.mat-form-field{
+    width: 100%;
+    font-size: 14px;
+}
+
+.full{
+    width: 100%; 
+    margin-top: 10px;
+}
+.boton-actualizar{
+    width: 200px;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    margin-left: 1em;
+
+}
+.formulario-field{
+    margin-top: 1em;
+    margin-left: 0.5em;
+}
+.formulario-campos{
+    margin-left: 1em;
+}

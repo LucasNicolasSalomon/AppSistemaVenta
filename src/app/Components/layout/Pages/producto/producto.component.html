@@ -1,0 +1,106 @@
+<h1 style="margin: 20px 0px 0px 40px;">Productos</h1>
+
+<mat-card style="margin:20px 40px 40px 40px">
+    <form [formGroup]="formularioModificar" (ngSubmit)="modificarPrecios()">
+    <div class="campos-formulario">                
+                <mat-form-field appearance="outline" class="formulario-field" >
+                    <mat-label>Modificar Precios</mat-label>
+                    <mat-select formControlName="opcion" (ngModelChange)="cambioOption($event)">
+                        <mat-option value="todos">Todos</mat-option>
+                        <mat-option value="categoria">Por Categorias</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            <mat-form-field appearance="outline" *ngIf="selectedOption == 'categoria'" class="formulario-campos">
+                <mat-label>Categoria</mat-label>
+                <mat-select formControlName="idCategoria">
+                    <mat-option *ngFor="let item of listaCategorias" [value]="item.idCategoria">
+                        {{item.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="formulario-campos">
+                <mat-label>Porcentaje</mat-label>
+                <input matInput autocomplete="off" formControlName="porcentaje" type="number" min="0" max="100">
+                <mat-icon matSuffix>edit_square</mat-icon>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary"  
+                [disabled]="!formularioModificar.valid"
+                [disabled]="selectedOption == ''"
+                type="submit" class="boton-actualizar">
+                    <mat-icon mat-list-icon>update</mat-icon>Actualizar Precios
+                </button>
+    </div>
+    </form>
+    <mat-card-title>
+        <button mat-raised-button color="primary" (click)="nuevoProducto()" style="margin:10px">
+            <mat-icon mat-list-icon>add</mat-icon>Nuevo Producto
+        </button>
+
+        
+    </mat-card-title>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content class="dashboard-card-content">
+        <mat-form-field class="full">
+            <mat-label>Buscar</mat-label>
+            <input matInput (keyup)="aplicarFiltroTabla($event)" #input>
+        </mat-form-field>
+
+        <div class="mat-elevation-z2">
+            <table mat-table [dataSource]="dataListaProductos">
+                <ng-container matColumnDef="nombre">
+                    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                    <td mat-cell *matCellDef="let element">{{element.nombre}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="categoria">
+                    <th mat-header-cell *matHeaderCellDef>Categoria</th>
+                    <td mat-cell *matCellDef="let element">{{element.descripcionCategoria}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="stock">
+                    <th mat-header-cell *matHeaderCellDef>Stock</th>
+                    <td mat-cell *matCellDef="let element">{{element.stock}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="precio">
+                    <th mat-header-cell *matHeaderCellDef>Precio</th>
+                    <td mat-cell *matCellDef="let element">{{element.precio}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="estado">
+                    <th mat-header-cell *matHeaderCellDef>Estado</th>
+                    <td mat-cell *matCellDef="let element">{{element.esActivo == 1 ? 'Activo' : 'No activo'}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="acciones">
+                    <th mat-header-cell *matHeaderCellDef style="width: 80px;"></th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button color="primary" (click)="editarProducto(element)" style="margin:10px">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" (click)="eliminarProducto(element)" style="margin:10px">
+                            <mat-icon mat-list-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="columnasTable"></tr>
+                <tr mat-row *matRowDef="let row; columns: columnasTable;"></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No hay datos que coincidan con el filtro "{{input.value}}"</td>
+                </tr>
+
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons>
+
+            </mat-paginator>
+        </div>
+    </mat-card-content>
+
+</mat-card>
