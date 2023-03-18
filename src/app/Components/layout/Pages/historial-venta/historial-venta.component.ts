@@ -104,7 +104,6 @@ export class HistorialVentaComponent implements OnInit,AfterViewInit{
     ).subscribe({
       next: (data) => {
         if(data.status){
-          console.log(data.value);
           this.datosListaVenta.data = data.value;
           this.dataInicio = data.value;
         } 

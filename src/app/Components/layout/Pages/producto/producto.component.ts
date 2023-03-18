@@ -195,8 +195,6 @@ export class ProductoComponent implements OnInit,AfterViewInit{
                 esActivo: element.esActivo
               }
   
-              console.log(_producto);
-  
               this._productoServicio.editar(_producto).subscribe({});
               
             });
