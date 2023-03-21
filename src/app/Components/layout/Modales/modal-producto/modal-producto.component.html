@@ -2,11 +2,9 @@
 <h2 mat-dialog-title>{{tituloAccion}} Producto</h2>
 
 <mat-dialog-content>
-
     <form [formGroup]="formularioProducto">
 
         <mat-grid-list cols="1" rowHeight="90px">
-
             <mat-grid-tile>
                 <mat-form-field appearance="outline">
                     <mat-label>Nombre</mat-label>
@@ -14,7 +12,6 @@
                     <mat-icon matSuffix>fit_screen</mat-icon>
                 </mat-form-field>
             </mat-grid-tile>
-
             <mat-grid-tile>
                 <mat-form-field appearance="outline">
                     <mat-label>Categoria</mat-label>
@@ -25,23 +22,20 @@
                     </mat-select>
                 </mat-form-field>
             </mat-grid-tile>
-
             <mat-grid-tile>
                 <mat-form-field appearance="outline">
                     <mat-label>Stock</mat-label>
                     <input matInput autocomplete="off" formControlName="stock" type="number">
                     <mat-icon matSuffix>edit_square</mat-icon>
                 </mat-form-field>
-            </mat-grid-tile>
-            
+            </mat-grid-tile>            
             <mat-grid-tile>
                 <mat-form-field appearance="outline">
                     <mat-label>Precio</mat-label>
                     <input matInput autocomplete="off" formControlName="precio">
                     <mat-icon matSuffix>attach_money</mat-icon>
                 </mat-form-field>
-            </mat-grid-tile>                      
-
+            </mat-grid-tile>
             <mat-grid-tile>
                 <mat-form-field appearance="outline">
                     <mat-label>Estado</mat-label>
@@ -51,9 +45,7 @@
                     </mat-select>
                 </mat-form-field>
             </mat-grid-tile>
-
         </mat-grid-list>
-
     </form>
 
 </mat-dialog-content>

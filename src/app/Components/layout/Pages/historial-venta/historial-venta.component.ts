@@ -3,12 +3,9 @@ import { AfterViewInit,ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
-
 import { FormBuilder, FormGroup } from '@angular/forms';
-
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import * as moment from 'moment';
-
 import { ModalDetalleVentaComponent } from '../../Modales/modal-detalle-venta/modal-detalle-venta.component';
 import { Venta } from 'src/app/Interfaces/venta';
 import { VentaService } from 'src/app/Services/venta.service';

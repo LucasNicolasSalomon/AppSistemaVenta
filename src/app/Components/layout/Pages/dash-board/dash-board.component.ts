@@ -1,6 +1,5 @@
 import { StickyDirection } from '@angular/cdk/table';
 import { Component , OnInit} from '@angular/core';
-
 import { Chart, registerables } from 'chart.js';
 import { DashBoardService } from 'src/app/Services/dash-board.service';
 Chart.register(...registerables);
@@ -19,7 +18,6 @@ export class DashBoardComponent implements OnInit{
   constructor(
     private _dashboardServicio: DashBoardService
   ){}
-
   mostarGrafico(labelGrafico: any[],dataGrafico:any[]){
 
     const chartBarras = new Chart('chartBarras',{
@@ -49,7 +47,6 @@ export class DashBoardComponent implements OnInit{
     });
 
   }
-
   ngOnInit(): void {
 
     this._dashboardServicio.resumen().subscribe({

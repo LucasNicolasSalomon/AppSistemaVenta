@@ -4,7 +4,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ProductoService } from 'src/app/Services/producto.service';
 import { VentaService } from 'src/app/Services/venta.service';
 import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
-
 import { Producto } from 'src/app/Interfaces/producto';
 import { Venta } from 'src/app/Interfaces/venta';
 import { DetalleVenta } from 'src/app/Interfaces/detalle-venta';
@@ -71,16 +70,11 @@ export class VentaComponent implements OnInit{
 
   ngOnInit(): void {    
   }
-
   mostraProducto(producto: Producto): string{
-
     return producto.nombre;
   }
-
   productoParaVenta(event:any){
-
     this.productoSeleccionado = event.option.value;
-
   }
 
   agregarProductoParaVenta(){
@@ -98,20 +92,15 @@ export class VentaComponent implements OnInit{
       totalTexto: String(_total.toFixed(2)),
 
     })
-
     this.datosDetalleVenta = new MatTableDataSource(this.listaProductosParaVenta);
-
-
     this.formularioProductoVenta.patchValue({
       producto: "",
       cantidad:""
     })
-
   }
 
   eliminarProducto(detalle: DetalleVenta){
-    this.totalPagar = this.totalPagar - parseFloat(detalle.totalTexto),
-       
+    this.totalPagar = this.totalPagar - parseFloat(detalle.totalTexto),       
     this.listaProductosParaVenta = this.listaProductosParaVenta.filter(p => p.idProducto != detalle.idProducto);
     this.datosDetalleVenta = new MatTableDataSource(this.listaProductosParaVenta);
   
@@ -151,9 +140,6 @@ export class VentaComponent implements OnInit{
         },
         error:(e) => {}
       })
-
     }
-
   }
-
 }

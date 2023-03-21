@@ -1,5 +1,4 @@
 import { Component, OnInit, AfterViewInit,ViewChild} from '@angular/core';
-
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
@@ -7,7 +6,6 @@ import { MAT_DATE_FORMATS } from '@angular/material/core';
 import * as moment from 'moment';
 import * as XLSX from "xlsx";
 import { Reporte } from 'src/app/Interfaces/reporte';
-
 import { VentaService } from 'src/app/Services/venta.service';
 import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
 
@@ -21,7 +19,6 @@ export const MY_DATA_FORMATS = {
     monthYearLabel:'MMMM YYYY'
   }
 }
-
 @Component({
   selector: 'app-reporte',
   templateUrl: './reporte.component.html',
@@ -81,7 +78,6 @@ export class ReporteComponent implements OnInit,AfterViewInit{
       },
       error:(e) => {}
     })
-
   }
 
   exportarExel(){

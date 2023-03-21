@@ -1,14 +1,11 @@
 import { Component , OnInit, Inject} from '@angular/core';
-
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
 import { Categoria } from 'src/app/Interfaces/categoria';
 import { Producto } from 'src/app/Interfaces/producto';
 import { CategoriaService } from 'src/app/Services/categoria.service';
 import { ProductoService } from 'src/app/Services/producto.service';
 import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
-
 
 @Component({
   selector: 'app-modal-producto',

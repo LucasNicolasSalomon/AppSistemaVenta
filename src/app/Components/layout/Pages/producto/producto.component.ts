@@ -1,9 +1,7 @@
 import { Component, OnInit, AfterViewInit,ViewChild} from '@angular/core';
-
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
-
 import { ModalProductoComponent } from '../../Modales/modal-producto/modal-producto.component';
 import { Producto } from 'src/app/Interfaces/producto';
 import { ProductoService } from 'src/app/Services/producto.service';
@@ -12,7 +10,6 @@ import { Categoria } from 'src/app/Interfaces/categoria';
 import { CategoriaService } from 'src/app/Services/categoria.service';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-
 import Swal from 'sweetalert2';
 import { elements } from 'chart.js';
 
@@ -37,7 +34,6 @@ export class ProductoComponent implements OnInit,AfterViewInit{
   idProductosModificar: number[] = [];
   productosModificar: Producto[] = []
 
-
   constructor(
     
     private fb:FormBuilder,
@@ -61,9 +57,7 @@ export class ProductoComponent implements OnInit,AfterViewInit{
       idCategoria: [''],
       porcentaje: [''],
     })
-
-    
-
+   
   }
 
 
@@ -74,7 +68,6 @@ export class ProductoComponent implements OnInit,AfterViewInit{
       this.selectedOption = 'categoria';
     }
   }
-
 
   obtenerProductos(){
     this._productoServicio.lista().subscribe({
@@ -222,12 +215,9 @@ export class ProductoComponent implements OnInit,AfterViewInit{
                   precio : precioNuevo.toString(),
                   stock: element.stock,
                   esActivo: element.esActivo
+                }    
 
-                }
-    
                 this._productoServicio.editar(_producto).subscribe({});
-
-                
 
               }
 
@@ -244,7 +234,5 @@ export class ProductoComponent implements OnInit,AfterViewInit{
     }else{
       this._utilidadServicio.mostrarAlerta("Ingrese el porcentaje a aumentar","Error");
     }
-   
   }
-
 }

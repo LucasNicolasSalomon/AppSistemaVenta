@@ -1,15 +1,11 @@
-
 import { Component , OnInit, Inject} from '@angular/core';
-
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Rol } from 'src/app/Interfaces/rol';
 import { Usuario } from 'src/app/Interfaces/usuario';
-
 import { RolService } from 'src/app/Services/rol.service';
 import { UsuarioService } from 'src/app/Services/usuario.service';
 import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
-
 
 @Component({
   selector: 'app-modal-usuario',
@@ -61,7 +57,6 @@ export class ModalUsuarioComponent  implements OnInit{
     })
 
   }
-
 
   ngOnInit(): void {
     if(this.datosUsuario != null){
